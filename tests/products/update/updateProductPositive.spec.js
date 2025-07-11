@@ -19,7 +19,6 @@ Test:
 let productID;
 let response;
 const productData = {
-  id: 1,
   title: 'string',
   price: 0.1,
   description: 'string',
@@ -27,7 +26,6 @@ const productData = {
   image: 'http://example.com',
 };
 const newBody = {
-  id: 1,
   title: 'new_string',
   price: 10,
   description: 'description!',

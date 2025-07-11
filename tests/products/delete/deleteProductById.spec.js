@@ -28,6 +28,6 @@ test.beforeEach(async ({ productsAPI }) => {
 });
 
 test('Delete product', async ({ productsAPI }) => {
-  await productsAPI.deleteSingleProduct(productID);
-  await productsAPI.assertSuccessResponseCode(response);
+  const newResponse = await productsAPI.deleteSingleProduct(productID);
+  await productsAPI.assertSuccessResponseCode(newResponse);
 });

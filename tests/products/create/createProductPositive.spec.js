@@ -15,7 +15,6 @@ Test:
 */
 
 const productData = {
-  id: 1,
   title: 'string',
   price: 0.1,
   description: 'string',
