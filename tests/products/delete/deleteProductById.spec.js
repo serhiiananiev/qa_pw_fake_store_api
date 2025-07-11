@@ -11,6 +11,23 @@ Test:
 2. Assert that the Success Response code is received
 */
 
-test.beforeEach(async ({}) => {});
+let productID;
+let response;
+const productData = {
+  title: 'string',
+  price: 0.1,
+  description: 'string',
+  category: 'string',
+  image: 'http://example.com',
+};
 
-test('Delete product', async ({}) => {});
+test.beforeEach(async ({ productsAPI }) => {
+  response = await productsAPI.addNewProduct(productData);
+  await productsAPI.assertSuccessResponseCode(response);
+  productID = await productsAPI.parseIdFromBody(response);
+});
+
+test('Delete product', async ({ productsAPI }) => {
+  await productsAPI.deleteSingleProduct(productID);
+  await productsAPI.assertSuccessResponseCode(response);
+});

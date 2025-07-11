@@ -14,4 +14,18 @@ Test:
 3. Assert that the  Response Body contains value 'id'
 */
 
-test('Create product', async ({}) => {});
+const productData = {
+  id: 1,
+  title: 'string',
+  price: 0.1,
+  description: 'string',
+  category: 'string',
+  image: 'http://example.com',
+};
+
+test('Create product', async ({ productsAPI }) => {
+  const response = await productsAPI.addNewProduct(productData);
+
+  await productsAPI.assertSuccessResponseCode(response);
+  await productsAPI.assertBodyHasId(response);
+});
